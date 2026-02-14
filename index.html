@@ -2,138 +2,138 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>National Employment & Careers Portal</title>
+<title>CareerConnect | Demo Recruitment Portal</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
-:root {
-    --primary: #123c69;
-    --secondary: #f4f7fb;
-    --accent: #1d70b8;
-    --text-dark: #2b2b2b;
+:root{
+    --primary:#1f3a5f;
+    --accent:#2f80ed;
+    --bg:#f3f6fb;
+    --text:#2b2b2b;
 }
 
-* {
-    box-sizing: border-box;
-}
+*{box-sizing:border-box}
 
-body {
-    margin: 0;
-    font-family: "Segoe UI", Arial, sans-serif;
-    background: var(--secondary);
-    color: var(--text-dark);
+body{
+    margin:0;
+    font-family:"Segoe UI", Arial, sans-serif;
+    background:var(--bg);
+    color:var(--text);
 }
 
 /* HEADER */
-header {
-    background: var(--primary);
-    color: white;
-    padding: 18px 30px;
-    display: flex;
-    align-items: center;
+header{
+    background:var(--primary);
+    color:#fff;
+    padding:16px 28px;
+    display:flex;
+    align-items:center;
 }
 
-header img {
-    height: 42px;
-    margin-right: 15px;
+header img{
+    height:40px;
+    margin-right:14px;
 }
 
-header h1 {
-    font-size: 20px;
-    font-weight: 500;
+header h1{
+    font-size:20px;
+    font-weight:500;
 }
 
-/* CONTAINER */
-.main {
-    display: flex;
-    justify-content: center;
-    padding: 40px 15px;
+/* MAIN CARD */
+.main{
+    display:flex;
+    justify-content:center;
+    padding:40px 15px;
 }
 
-.card {
-    background: white;
-    width: 460px;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+.card{
+    background:#fff;
+    width:460px;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0 10px 30px rgba(0,0,0,.12);
 }
 
-/* COMMON */
-h2 {
-    text-align: center;
-    color: var(--primary);
-    margin-bottom: 25px;
-    font-weight: 600;
+h2{
+    text-align:center;
+    margin-bottom:20px;
+    color:var(--primary);
 }
 
-label {
-    font-size: 13px;
-    margin-top: 10px;
-    display: block;
+label{
+    font-size:13px;
+    display:block;
+    margin-top:12px;
 }
 
-input {
-    width: 100%;
-    padding: 11px;
-    margin-top: 6px;
-    border-radius: 6px;
-    border: 1px solid #cfd6e0;
-    font-size: 14px;
+input{
+    width:100%;
+    padding:11px;
+    margin-top:6px;
+    border-radius:6px;
+    border:1px solid #cfd6e0;
+    font-size:14px;
 }
 
-input:focus {
-    outline: none;
-    border-color: var(--accent);
+input:focus{
+    outline:none;
+    border-color:var(--accent);
 }
 
-button {
-    width: 100%;
-    margin-top: 20px;
-    padding: 12px;
-    background: var(--accent);
-    border: none;
-    color: white;
-    border-radius: 6px;
-    font-size: 15px;
-    cursor: pointer;
+button{
+    width:100%;
+    padding:12px;
+    margin-top:22px;
+    background:var(--accent);
+    border:none;
+    color:#fff;
+    border-radius:6px;
+    font-size:15px;
+    cursor:pointer;
 }
 
-button:hover {
-    background: #155d9c;
+button:hover{
+    background:#1f6fd8;
 }
 
-.link {
-    text-align: center;
-    margin-top: 18px;
-    color: var(--accent);
-    cursor: pointer;
-    font-size: 14px;
+.link{
+    text-align:center;
+    margin-top:18px;
+    font-size:14px;
+    color:var(--accent);
+    cursor:pointer;
 }
 
-.hidden {
-    display: none;
+.notice{
+    background:#eef3fb;
+    padding:10px;
+    font-size:12px;
+    border-left:4px solid var(--accent);
+    margin-bottom:16px;
 }
 
-.notice {
-    background: #eef3f8;
-    padding: 10px;
-    border-left: 4px solid var(--accent);
-    font-size: 13px;
-    margin-bottom: 15px;
-}
+.hidden{display:none}
 
 /* PRANK */
-.prank {
-    text-align: center;
-    font-size: 24px;
-    color: #c0392b;
-    font-weight: 700;
+.prank{
+    font-size:24px;
+    color:#c0392b;
+    text-align:center;
+    font-weight:700;
+}
+.prank-sub{
+    text-align:center;
+    margin-top:10px;
 }
 
-.prank-sub {
-    text-align: center;
-    margin-top: 10px;
-    font-size: 15px;
+/* FOOTER */
+footer{
+    text-align:center;
+    font-size:11px;
+    color:#666;
+    margin-top:20px;
 }
 </style>
 </head>
@@ -141,8 +141,8 @@ button:hover {
 <body>
 
 <header>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Emblem_of_India.svg">
-    <h1>National Employment & Careers Portal</h1>
+    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
+    <h1>CareerConnect – Demo Recruitment Portal</h1>
 </header>
 
 <div class="main">
@@ -150,41 +150,45 @@ button:hover {
 
 <!-- LOGIN -->
 <div id="loginPage">
-    <h2>Applicant Login</h2>
-    <div class="notice">Authorized candidates may login using their registered credentials.</div>
+    <h2>Secure Login</h2>
+    <div class="notice">
+        Demo system for UI practice only. No personal data is stored.
+    </div>
     <label>Login ID</label>
     <input id="loginId" placeholder="Enter Login ID">
     <label>Password</label>
     <input id="loginPass" type="password" placeholder="Enter Password">
     <button onclick="login()">Login</button>
-    <div class="link" onclick="showSignup()">New User Registration</div>
+    <div class="link" onclick="showSignup()">Create New Account</div>
 </div>
 
 <!-- SIGNUP -->
 <div id="signupPage" class="hidden">
     <h2>User Registration</h2>
-    <div class="notice">OTP will be sent to your registered contact for verification.</div>
-    <label>Email / Mobile Number</label>
-    <input id="signupContact" placeholder="Enter Email or Mobile">
+    <div class="notice">
+        A demo OTP will be generated for verification.
+    </div>
+    <label>Email or Mobile Number</label>
+    <input id="contact">
     <button onclick="generateOTP()">Generate OTP</button>
     <label>Enter OTP</label>
-    <input id="otpInput" placeholder="6-Digit OTP">
+    <input id="otpInput">
     <button onclick="verifyOTP()">Verify OTP</button>
 </div>
 
-<!-- CREATE LOGIN -->
+<!-- CREATE ACCOUNT -->
 <div id="createPage" class="hidden">
-    <h2>Create Login Credentials</h2>
+    <h2>Create Credentials</h2>
     <label>Create Login ID</label>
-    <input id="newLoginId">
+    <input id="newId">
     <label>Create Password</label>
     <input id="newPass" type="password">
-    <button onclick="saveCredentials()">Create Account</button>
+    <button onclick="saveAccount()">Create Account</button>
 </div>
 
 <!-- DETAILS -->
 <div id="detailsPage" class="hidden">
-    <h2>Candidate Information</h2>
+    <h2>Candidate Details</h2>
     <label>Full Name</label>
     <input>
     <label>Date of Birth</label>
@@ -196,67 +200,75 @@ button:hover {
 
 <!-- UPLOAD -->
 <div id="uploadPage" class="hidden">
-    <h2>Identity Verification</h2>
-    <div class="notice">Please upload a recent passport-size selfie.</div>
+    <h2>Profile Verification</h2>
+    <div class="notice">
+        Upload a recent selfie for profile completion.
+    </div>
     <input type="file" accept="image/*">
-    <button onclick="showPrank()">Submit Application</button>
+    <button onclick="showPrank()">Submit</button>
 </div>
 
 <!-- PRANK -->
 <div id="prankPage" class="hidden">
     <p class="prank">Sorry Dost 😄</p>
-    <p class="prank-sub">This was just a harmless prank.<br>
-    Thanks for being a good sport!</p>
+    <p class="prank-sub">
+        This was just a harmless demo prank.<br>
+        No information was saved.
+    </p>
 </div>
+
+<footer>
+    © 2026 CareerConnect · Demo Interface · No Data Stored
+</footer>
 
 </div>
 </div>
 
 <script>
-let savedId = "", savedPass = "", otp = "";
+let savedUser="", savedPass="", otp="";
 
-function showSignup() {
+function showSignup(){
     loginPage.classList.add("hidden");
     signupPage.classList.remove("hidden");
 }
 
-function generateOTP() {
-    otp = Math.floor(100000 + Math.random() * 900000);
-    alert("OTP for verification: " + otp);
+function generateOTP(){
+    otp = Math.floor(100000 + Math.random()*900000);
+    alert("Demo OTP: " + otp);
 }
 
-function verifyOTP() {
-    if (otpInput.value == otp) {
+function verifyOTP(){
+    if(otpInput.value == otp){
         signupPage.classList.add("hidden");
         createPage.classList.remove("hidden");
     } else {
-        alert("Invalid OTP. Please try again.");
+        alert("Invalid OTP");
     }
 }
 
-function saveCredentials() {
-    savedId = newLoginId.value;
+function saveAccount(){
+    savedUser = newId.value;
     savedPass = newPass.value;
-    alert("Registration successful. Please login.");
+    alert("Account created successfully.");
     createPage.classList.add("hidden");
     loginPage.classList.remove("hidden");
 }
 
-function login() {
-    if (loginId.value === savedId && loginPass.value === savedPass) {
+function login(){
+    if(loginId.value === savedUser && loginPass.value === savedPass){
         loginPage.classList.add("hidden");
         detailsPage.classList.remove("hidden");
     } else {
-        alert("Invalid Login ID or Password");
+        alert("Invalid login credentials");
     }
 }
 
-function showUpload() {
+function showUpload(){
     detailsPage.classList.add("hidden");
     uploadPage.classList.remove("hidden");
 }
 
-function showPrank() {
+function showPrank(){
     uploadPage.classList.add("hidden");
     prankPage.classList.remove("hidden");
 }
