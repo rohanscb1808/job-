@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>National Career Portal</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #eef2f6;
+}
+
+header {
+    background: #0b3c5d;
+    color: white;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+}
+
+header img {
+    height: 45px;
+    margin-right: 15px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 80px);
+}
+
+.card {
+    background: white;
+    width: 420px;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #0b3c5d;
+}
+
+input, button {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+button {
+    background: #0b3c5d;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #092f4a;
+}
+
+.link {
+    text-align: center;
+    color: #007bff;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.hidden {
+    display: none;
+}
+
+.banner {
+    width: 100%;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+.prank {
+    font-size: 24px;
+    color: red;
+    font-weight: bold;
+    text-align: center;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Logo_TV_2015.png">
+    <h3>National Career Portal</h3>
+</header>
+
+<div class="container">
+<div class="card">
+
+<!-- LOGIN -->
+<div id="loginPage">
+    <img class="banner" src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d">
+    <h2>Applicant Login</h2>
+    <input id="loginId" placeholder="Login ID">
+    <input id="loginPass" type="password" placeholder="Password">
+    <button onclick="login()">Login</button>
+    <p class="link" onclick="showSignup()">Create New Account</p>
+</div>
+
+<!-- SIGNUP -->
+<div id="signupPage" class="hidden">
+    <h2>New User Registration</h2>
+    <input id="signupContact" placeholder="Email or Mobile Number">
+    <button onclick="generateOTP()">Generate OTP</button>
+    <input id="otpInput" placeholder="Enter OTP">
+    <button onclick="verifyOTP()">Verify OTP</button>
+</div>
+
+<!-- CREATE CREDENTIALS -->
+<div id="createCredPage" class="hidden">
+    <h2>Create Login Credentials</h2>
+    <input id="newLoginId" placeholder="Create Login ID">
+    <input id="newPass" type="password" placeholder="Create Password">
+    <button onclick="saveCredentials()">Create Account</button>
+</div>
+
+<!-- DETAILS -->
+<div id="detailsPage" class="hidden">
+    <h2>Candidate Details</h2>
+    <input placeholder="Full Name">
+    <input type="date">
+    <input placeholder="Mobile Number">
+    <button onclick="showUpload()">Next</button>
+</div>
+
+<!-- UPLOAD -->
+<div id="uploadPage" class="hidden">
+    <h2>Upload Recent Selfie</h2>
+    <input type="file" accept="image/*">
+    <button onclick="showPrank()">Submit Application</button>
+</div>
+
+<!-- PRANK -->
+<div id="prankPage" class="hidden">
+    <p class="prank">😂 Sorry Dost 😂</p>
+    <p style="text-align:center;">Ye sirf ek prank tha 😜</p>
+</div>
+
+</div>
+</div>
+
+<script>
+let savedId = "";
+let savedPass = "";
+let generatedOTP = "";
+
+function showSignup() {
+    loginPage.classList.add("hidden");
+    signupPage.classList.remove("hidden");
+}
+
+function generateOTP() {
+    generatedOTP = Math.floor(100000 + Math.random() * 900000);
+    alert("Your OTP is: " + generatedOTP); // prank realism
+}
+
+function verifyOTP() {
+    if (otpInput.value == generatedOTP) {
+        signupPage.classList.add("hidden");
+        createCredPage.classList.remove("hidden");
+    } else {
+        alert("Invalid OTP");
+    }
+}
+
+function saveCredentials() {
+    savedId = newLoginId.value;
+    savedPass = newPass.value;
+    alert("Account Created Successfully");
+    createCredPage.classList.add("hidden");
+    loginPage.classList.remove("hidden");
+}
+
+function login() {
+    if (loginId.value === savedId && loginPass.value === savedPass) {
+        loginPage.classList.add("hidden");
+        detailsPage.classList.remove("hidden");
+    } else {
+        alert("Invalid Login Credentials");
+    }
+}
+
+function showUpload() {
+    detailsPage.classList.add("hidden");
+    uploadPage.classList.remove("hidden");
+}
+
+function showPrank() {
+    uploadPage.classList.add("hidden");
+    prankPage.classList.remove("hidden");
+}
+</script>
+
+</body>
+</html>
