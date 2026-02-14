@@ -2,73 +2,110 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>National Career Portal</title>
+<title>National Employment & Careers Portal</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
+:root {
+    --primary: #123c69;
+    --secondary: #f4f7fb;
+    --accent: #1d70b8;
+    --text-dark: #2b2b2b;
+}
+
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     font-family: "Segoe UI", Arial, sans-serif;
-    background: #eef2f6;
+    background: var(--secondary);
+    color: var(--text-dark);
 }
 
+/* HEADER */
 header {
-    background: #0b3c5d;
+    background: var(--primary);
     color: white;
-    padding: 15px;
+    padding: 18px 30px;
     display: flex;
     align-items: center;
 }
 
 header img {
-    height: 45px;
+    height: 42px;
     margin-right: 15px;
 }
 
-.container {
+header h1 {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+/* CONTAINER */
+.main {
     display: flex;
     justify-content: center;
-    align-items: center;
-    min-height: calc(100vh - 80px);
+    padding: 40px 15px;
 }
 
 .card {
     background: white;
-    width: 420px;
-    padding: 25px;
-    border-radius: 8px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    width: 460px;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
 }
 
+/* COMMON */
 h2 {
     text-align: center;
-    margin-bottom: 20px;
-    color: #0b3c5d;
+    color: var(--primary);
+    margin-bottom: 25px;
+    font-weight: 600;
 }
 
-input, button {
+label {
+    font-size: 13px;
+    margin-top: 10px;
+    display: block;
+}
+
+input {
     width: 100%;
-    padding: 10px;
-    margin: 8px 0;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+    padding: 11px;
+    margin-top: 6px;
+    border-radius: 6px;
+    border: 1px solid #cfd6e0;
     font-size: 14px;
 }
 
+input:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
 button {
-    background: #0b3c5d;
-    color: white;
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+    background: var(--accent);
     border: none;
+    color: white;
+    border-radius: 6px;
+    font-size: 15px;
     cursor: pointer;
 }
 
 button:hover {
-    background: #092f4a;
+    background: #155d9c;
 }
 
 .link {
     text-align: center;
-    color: #007bff;
+    margin-top: 18px;
+    color: var(--accent);
     cursor: pointer;
     font-size: 14px;
 }
@@ -77,17 +114,26 @@ button:hover {
     display: none;
 }
 
-.banner {
-    width: 100%;
-    border-radius: 6px;
+.notice {
+    background: #eef3f8;
+    padding: 10px;
+    border-left: 4px solid var(--accent);
+    font-size: 13px;
     margin-bottom: 15px;
 }
 
+/* PRANK */
 .prank {
-    font-size: 24px;
-    color: red;
-    font-weight: bold;
     text-align: center;
+    font-size: 24px;
+    color: #c0392b;
+    font-weight: 700;
+}
+
+.prank-sub {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 15px;
 }
 </style>
 </head>
@@ -95,69 +141,79 @@ button:hover {
 <body>
 
 <header>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Logo_TV_2015.png">
-    <h3>National Career Portal</h3>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Emblem_of_India.svg">
+    <h1>National Employment & Careers Portal</h1>
 </header>
 
-<div class="container">
+<div class="main">
 <div class="card">
 
 <!-- LOGIN -->
 <div id="loginPage">
-    <img class="banner" src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d">
     <h2>Applicant Login</h2>
-    <input id="loginId" placeholder="Login ID">
-    <input id="loginPass" type="password" placeholder="Password">
+    <div class="notice">Authorized candidates may login using their registered credentials.</div>
+    <label>Login ID</label>
+    <input id="loginId" placeholder="Enter Login ID">
+    <label>Password</label>
+    <input id="loginPass" type="password" placeholder="Enter Password">
     <button onclick="login()">Login</button>
-    <p class="link" onclick="showSignup()">Create New Account</p>
+    <div class="link" onclick="showSignup()">New User Registration</div>
 </div>
 
 <!-- SIGNUP -->
 <div id="signupPage" class="hidden">
-    <h2>New User Registration</h2>
-    <input id="signupContact" placeholder="Email or Mobile Number">
+    <h2>User Registration</h2>
+    <div class="notice">OTP will be sent to your registered contact for verification.</div>
+    <label>Email / Mobile Number</label>
+    <input id="signupContact" placeholder="Enter Email or Mobile">
     <button onclick="generateOTP()">Generate OTP</button>
-    <input id="otpInput" placeholder="Enter OTP">
+    <label>Enter OTP</label>
+    <input id="otpInput" placeholder="6-Digit OTP">
     <button onclick="verifyOTP()">Verify OTP</button>
 </div>
 
-<!-- CREATE CREDENTIALS -->
-<div id="createCredPage" class="hidden">
+<!-- CREATE LOGIN -->
+<div id="createPage" class="hidden">
     <h2>Create Login Credentials</h2>
-    <input id="newLoginId" placeholder="Create Login ID">
-    <input id="newPass" type="password" placeholder="Create Password">
+    <label>Create Login ID</label>
+    <input id="newLoginId">
+    <label>Create Password</label>
+    <input id="newPass" type="password">
     <button onclick="saveCredentials()">Create Account</button>
 </div>
 
 <!-- DETAILS -->
 <div id="detailsPage" class="hidden">
-    <h2>Candidate Details</h2>
-    <input placeholder="Full Name">
+    <h2>Candidate Information</h2>
+    <label>Full Name</label>
+    <input>
+    <label>Date of Birth</label>
     <input type="date">
-    <input placeholder="Mobile Number">
-    <button onclick="showUpload()">Next</button>
+    <label>Mobile Number</label>
+    <input>
+    <button onclick="showUpload()">Continue</button>
 </div>
 
 <!-- UPLOAD -->
 <div id="uploadPage" class="hidden">
-    <h2>Upload Recent Selfie</h2>
+    <h2>Identity Verification</h2>
+    <div class="notice">Please upload a recent passport-size selfie.</div>
     <input type="file" accept="image/*">
     <button onclick="showPrank()">Submit Application</button>
 </div>
 
 <!-- PRANK -->
 <div id="prankPage" class="hidden">
-    <p class="prank">😂 Sorry Dost 😂</p>
-    <p style="text-align:center;">Ye sirf ek prank tha 😜</p>
+    <p class="prank">Sorry Dost 😄</p>
+    <p class="prank-sub">This was just a harmless prank.<br>
+    Thanks for being a good sport!</p>
 </div>
 
 </div>
 </div>
 
 <script>
-let savedId = "";
-let savedPass = "";
-let generatedOTP = "";
+let savedId = "", savedPass = "", otp = "";
 
 function showSignup() {
     loginPage.classList.add("hidden");
@@ -165,24 +221,24 @@ function showSignup() {
 }
 
 function generateOTP() {
-    generatedOTP = Math.floor(100000 + Math.random() * 900000);
-    alert("Your OTP is: " + generatedOTP); // prank realism
+    otp = Math.floor(100000 + Math.random() * 900000);
+    alert("OTP for verification: " + otp);
 }
 
 function verifyOTP() {
-    if (otpInput.value == generatedOTP) {
+    if (otpInput.value == otp) {
         signupPage.classList.add("hidden");
-        createCredPage.classList.remove("hidden");
+        createPage.classList.remove("hidden");
     } else {
-        alert("Invalid OTP");
+        alert("Invalid OTP. Please try again.");
     }
 }
 
 function saveCredentials() {
     savedId = newLoginId.value;
     savedPass = newPass.value;
-    alert("Account Created Successfully");
-    createCredPage.classList.add("hidden");
+    alert("Registration successful. Please login.");
+    createPage.classList.add("hidden");
     loginPage.classList.remove("hidden");
 }
 
@@ -191,7 +247,7 @@ function login() {
         loginPage.classList.add("hidden");
         detailsPage.classList.remove("hidden");
     } else {
-        alert("Invalid Login Credentials");
+        alert("Invalid Login ID or Password");
     }
 }
 
